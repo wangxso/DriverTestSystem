@@ -1,0 +1,33 @@
+.content{
+    margin-right: 110px;
+    font-size: 26px;
+}
+
+.answers p{
+    margin: 10px 0;
+    line-height: 25px;
+    padding-left: 30px;
+    background: url("https://www.jiakaobaodian.com/core-assets/jiakao/application/mnks/exercise/files/8fc5b0ab447a74e46dbed2a154831845.png") left center no-repeat;
+    color: #666;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.q-bd{
+    min-height: 280px;
+    margin: 0 0 30px;
+}
+
+.option-type-msg{
+    line-height: 24px;
+    color: #999;
+}
+
+.bottom-btn a{
+    border: 1px solid #37B5F8;
+    background-color: #37B5F8;
+    color: #fff;
+
+}
+
+

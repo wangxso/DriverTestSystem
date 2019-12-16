@@ -1,0 +1,198 @@
+.top-content{
+    margin-top: 90px;
+}
+
+*, .block-item,:after,:before{
+    box-sizing: border-box;
+}
+
+.top-content fieldset{
+    border: 1px solid #b8babb;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.top-content fieldset .kaochang{
+    height: 50px;
+    text-align: center;
+}
+
+.top-content fieldset legend{
+    margin-left: 25px;
+    font-size: 16px;
+}
+
+.kaosheng{
+    margin-top: 20px;
+}
+
+.daojishi{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.djs{
+    font-size: 24px;
+    color: #EE4653;
+}
+
+.top-content .author-img{
+    margin: 10px auto;
+    border: 1px solid #b8babb;
+    display: block;
+    width: 110px;
+    height: 110px;
+    overflow: hidden;
+}
+.top-content .kaosheng-item .kemu{
+    text-align: center;
+}
+.kaosheng-item{
+    margin: 10px 0;
+    width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.red{
+    color: red;
+}
+
+.kaoti .question-detail{
+    height: 372px;
+    overflow: auto;
+}
+.timu{
+    line-height: 2.7;
+    margin: 0;
+    font-size: 24px;
+}
+
+.answer-w{
+    font-size: 24px;
+    margin-top: 5px;
+}
+
+.answer-w .options p{
+    margin: 20px 0;
+    line-height: 22px;
+    padding-left: 30px;
+    color: #666;
+}
+
+.select-w{
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+
+.right{
+    float: right;
+}
+
+.select-table{
+    line-height: 20px;
+    margin: 0 20px;
+    padding: 10px 15px;
+    border: 1px solid #999;
+    font-size: 18px;
+}
+
+.select-table:hover{
+    background-color: #0c7cb5;
+}
+
+.tishi{
+    float: left;
+    width: 300px;
+    height: 96px;
+}
+
+.btn-bar{
+    float: right;
+    margin-top: 50px;
+}
+
+.btn-bar button{
+    border: none;
+    width: 100px;
+    margin-top: 15px;
+    line-height: 36px;
+    text-align: center;
+    color: #fff;
+}
+
+.btn-bar .pre{
+    background-color: #208BE6;
+}
+
+.btn-bar .next{
+    background-color: #1DACF9;
+}
+
+.btn-bar .submit{
+    background-color: #32B16C;
+}
+
+.datika{
+    padding: 10px;
+    margin-top: 20px;
+    margin-right: 30px;
+}
+
+.datika .datika-list-w{
+    border-top: 1px solid #E0E0E0;
+    border-left: 1px solid #E0E0E0;
+}
+
+.clearfix:before {
+    display: table;
+    content: " ";
+}
+
+.datika .datika-list-w>li{
+    float: left;
+    width: 10%;
+    height: 35px;
+    border-right: 1px solid #E0E0E0;
+    border-bottom: 1px solid #E0E0E0;
+    text-align: center;
+    overflow: hidden;
+}
+
+.curr{
+    float: none;
+    background-color: #1D6BD0;
+    color: #fff;
+}
+
+.tishi-img fieldset{
+    border: 1px solid #b8babb;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.tishi-img legend{
+    margin-left: 25px;
+    font-size: 16px;
+}
+
+.tishi-img{
+    margin-top: 10px;
+    height: 250px;
+}
+
+.tishi-img .media-w{
+    height: 200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.faild{
+    background-color: red;
+}
+
+.pass{
+    background-color: #0bb59b;
+}

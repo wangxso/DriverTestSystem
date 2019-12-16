@@ -1,0 +1,32 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="DriverTestSystem">
+    <output-path>$PROJECT_DIR$/out/artifacts/DriverTestSystem</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="DriverTestSystem/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="DriverTestSystem" />
+          <element id="library" level="application" name="zepto" />
+          <element id="library" level="application" name="jquery" />
+          <element id="library" level="application" name="index" />
+          <element id="library" level="application" name="vue" />
+          <element id="library" level="application" name="amazeui" />
+          <element id="library" level="application" name="echarts" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="module" name="JUnit5.4" module-name="DriverTestSystem" />
+          <element id="library" level="project" name="lib" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.7.25" />
+          <element id="library" level="project" name="Maven: eu.bitwalker:UserAgentUtils:1.21" />
+          <element id="library" level="project" name="Java EE 6-Java EE 6" />
+          <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.62" />
+        </element>
+      </element>
+      <element id="dir-copy" path="$PROJECT_DIR$/web/css" />
+      <element id="dir-copy" path="$PROJECT_DIR$/web/js" />
+      <element id="dir-copy" path="$PROJECT_DIR$/web/i" />
+    </root>
+  </artifact>
+</component>
