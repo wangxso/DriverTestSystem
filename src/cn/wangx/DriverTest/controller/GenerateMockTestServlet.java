@@ -1,11 +1,17 @@
 package cn.wangx.DriverTest.controller;
 
+import cn.wangx.DriverTest.dao.ProblemDao;
 import cn.wangx.DriverTest.pojo.Problem;
+import cn.wangx.DriverTest.service.ExamService;
 import cn.wangx.DriverTest.service.ProblemService;
+import cn.wangx.DriverTest.service.impl.ExamServiceImpl;
 import cn.wangx.DriverTest.service.impl.ProblemServiceImpl;
 import cn.wangx.DriverTest.util.GenProblemIdUtils;
+import cn.wangx.DriverTest.util.RedisUtils;
+import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import redis.clients.jedis.Jedis;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,6 +33,7 @@ import java.util.Random;
 public class GenerateMockTestServlet extends HttpServlet {
     private ProblemService problemService = new ProblemServiceImpl();
     private final Logger logger = LoggerFactory.getLogger(GenerateMockTestServlet.class);
+    private Jedis jedis = RedisUtils.getJedis();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String curr = req.getParameter("curr");
@@ -47,9 +54,7 @@ public class GenerateMockTestServlet extends HttpServlet {
             }else if("4".equals(mode)){
                 problemIdList = GenProblemIdUtils.genProblemId(mode1+1,mode4+mode1,50);
             }
-
             HttpSession session = req.getSession();
-
             session.setAttribute("problem_id_list", problemIdList);
             pid = Long.valueOf(problemIdList.get(0));
             session.setAttribute("curr",0);
@@ -62,12 +67,24 @@ public class GenerateMockTestServlet extends HttpServlet {
         }
         // 3.将序列添加到session中
         HttpSession session = req.getSession();
-        Problem problemById = problemService.findProblemById(pid);
+        //已经在redis中了
+        Problem problemById = null;
+        String problemJson = jedis.hget("problem",""+pid);
+        logger.info(problemJson);
+        if (problemJson!=null && !"".equals(problemJson)){
+            problemById = JSON.parseObject(problemJson,Problem.class);
+            logger.info("get from redis's problem is "+problemById);
+        }else{
+            //不在redis中就查数据库存入redis
+            problemById = problemService.findProblemById(pid);
+            String json = JSON.toJSONString(problemById);
+            jedis.hset("problem",""+pid,json);
+            logger.info("add to redis pid="+pid+" content="+json);
+        }
+
         String title = problemById.getContent();
         //拆分选项以:分割的
         String[] chooses = problemById.getChooseItem().split(":");
-        logger.info(problemById.toString());
-
         session.setAttribute("problem_by_id", problemById);
         //拆分选择项
         session.setAttribute("chooses",chooses);

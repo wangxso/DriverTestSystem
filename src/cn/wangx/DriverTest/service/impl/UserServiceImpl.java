@@ -54,7 +54,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int updateUserProfile(UserProfile userProfile) {
-        return updateUserProfile(userProfile);
+        return userDao.updateUserProfile(userProfile);
     }
 
     @Override

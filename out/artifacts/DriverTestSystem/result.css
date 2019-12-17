@@ -1,7 +1,38 @@
+body{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    height: 700px;
+    background: url("https://www.jiakaobaodian.com/core-assets/jiakao/application/mnks/award/files/11cc5cade497a789f1219fdc6ff3affc.png") center bottom no-repeat #7ed5f5;
+}
+
 #chart{
     margin: 1px auto;
 }
 
 .content-fram{
     margin-top: 90px;
+}
+.result{
+    width: 485px;
+    height: 445px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+.shashou{
+    background: url("https://www.jiakaobaodian.com/core-assets/jiakao/application/mnks/award/files/e9fc61aa4813d48d163272a326d6f75e.png") left bottom no-repeat;
+}
+
+.cheshen{
+    background: url("https://www.jiakaobaodian.com/core-assets/jiakao/application/mnks/award/files/cac4fe36f8dd3790238da889e681f59d.png") left bottom no-repeat;
+}
+
+.result-score{
+    font-size: 60px;
+    color: #0c7cb5;
+}
+
+.left-box{
+    margin-top: 270px;
 }

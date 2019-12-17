@@ -19,10 +19,4 @@ public interface ExamDao {
      * @return
      */
     int addExam(Exam exam);
-
-
-
-
-
-
 }

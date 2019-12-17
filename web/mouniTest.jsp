@@ -114,11 +114,12 @@
         </c:if>
     </div>
 </fieldset>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
 <script src="http://cdn.clouddeep.cn/amazeui/1.0.1/js/amazeui.min.js"></script>
 <script src="js/localStorageUtils.js"></script>
 <script src="js/cookieUtils.js"></script>
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/layer.js"></script>
 <script type="text/javascript">
     $("#"+${sessionScope.curr}).addClass("curr");
     var setTimer = null;
@@ -205,15 +206,20 @@
     }
     changeTheStyle();
     function submit() {
-        console.log(changeTheStyle());
-        $.ajax({
-            type:"post",
-            url: "mockSubmit",
-            data: changeTheStyle(),
-            success:function (data) {
-                window.location.href = "result.jsp"
-            }
-        })
+        layer.confirm('确定提交？', {
+            btn: ['确定','取消'] //按钮
+        }, function(){
+            $.ajax({
+                type:"post",
+                url: "mockSubmit",
+                data: changeTheStyle(),
+                success:function (data) {
+                    window.location.href = "result.jsp"
+                }
+            })
+        }, function(){
+            layer.msg("请继续答题",{icon:1});
+        });
     }
 </script>
 </body>

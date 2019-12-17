@@ -67,7 +67,7 @@
             </span>
         </div>
         <div class="bottom-btn">
-            <a id="pre-btn" href="getOrderTest?pid=${sessionScope.problem.pid+1}" class="am-btn am-btn-primary am-btn-lg"
+            <a id="pre-btn" href="getOrderTest?pid=${sessionScope.problem.pid-1}" class="am-btn am-btn-primary am-btn-lg"
             <c:if test="${sessionScope.problem.pid==1}">
                disabled
             </c:if>">上一题
