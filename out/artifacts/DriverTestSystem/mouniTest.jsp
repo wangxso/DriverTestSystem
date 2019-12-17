@@ -190,10 +190,10 @@
         for (var i=0;i<="${sessionScope.problem_id_list.size()}";i++){
             var res = sessionStorage.getItem(i);
             if(res === "pass"){
-                $('#'+i).addClass("pass")
+                $('#'+i).addClass("pass");
                 pass_num++;
             }else if(res === "faild"){
-                $('#'+i).addClass("faild")
+                $('#'+i).addClass("faild");
                 faild_num++;
             }
         }
@@ -203,9 +203,9 @@
         }
 
     }
-    changeTheStyle()
+    changeTheStyle();
     function submit() {
-        console.log(changeTheStyle())
+        console.log(changeTheStyle());
         $.ajax({
             type:"post",
             url: "mockSubmit",

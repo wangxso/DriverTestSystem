@@ -92,8 +92,8 @@
       $.get("/driver/getUserVisitedHistory",{},function (data) {
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('main'));
-        var x_data = []
-        var y_data = []
+        var x_data = [];
+        var y_data = [];
         for (let index in data){
           console.log(data[index])
         }

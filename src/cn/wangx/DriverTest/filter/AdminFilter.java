@@ -29,7 +29,6 @@ public class AdminFilter implements Filter {
         try {
             HttpSession session = request.getSession();
             user = (User) session.getAttribute("user");
-
             if("admin".equals(user.getRole())){
                 List<User> userL = userDao.findAllUser();
                 session.setAttribute("userList",userL);

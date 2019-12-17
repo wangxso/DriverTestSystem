@@ -120,8 +120,8 @@
      *
      */
     function checkMultiChoose() {
-        var flag = true
-        var answer_list = []
+        var flag = true;
+        var answer_list = [];
         //获取选择的答案
         if($('#A').hasClass("success")){
             answer_list.push("A")
@@ -136,26 +136,26 @@
             answer_list.push("D")
         }
         //判断答案是否正确
-        var result = "${sessionScope.problem.result}"
-        var res_list = result.split("")
+        var result = "${sessionScope.problem.result}";
+        var res_list = result.split("");
         //答案没有选全
         for (var i=0;i<res_list.length;i++){
-            var r = res_list[i]
-            console.log(!isInArray(answer_list, r)+"  r is: "+ r)
+            var r = res_list[i];
+            console.log(!isInArray(answer_list, r)+"  r is: "+ r);
             if(!isInArray(answer_list,r)){
-                console.log(1)
-                $('#'+r).addClass("correct")
+                console.log(1);
+                $('#'+r).addClass("correct");
                 flag = false
             }
         }
         //答案不在结果之中
         for (var i=0;i<answer_list.length;i++){
-            var as = answer_list[i]
-            console.log(!isInArray(res_list, as)+"  as is: "+ as)
+            var as = answer_list[i];
+            console.log(!isInArray(res_list, as)+"  as is: "+ as);
             if(!isInArray(res_list, as) && as!=null){
-                console.log(2)
+                console.log(2);
                 $("#"+as).removeClass("success");
-                $('#'+as).addClass("error")
+                $('#'+as).addClass("error");
                 flag = false
             }
         }
