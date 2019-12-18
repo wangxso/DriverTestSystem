@@ -92,7 +92,7 @@
             <div class="btn-bar">
                 <button class="pre am-btn-primary am-btn-lg" <c:if test="${sessionScope.curr == 0}">disabled</c:if> onclick="goToPreProblem()">上一题</button>
                 <button class="next am-btn-success am-btn-lg" onclick="goToNextProblem()">下一题</button>
-                <button class="submit am-btn-default am-btn-lg" onclick="submit()">交卷</button>
+                <button class="submit am-btn-default am-btn-lg" onclick="submitToResult()">交卷</button>
             </div>
         </div>
         <div class="col-sm-12 col-lg-3">
@@ -167,12 +167,13 @@
             alert("请不要重复提交")
         }else{
             if(answer === res){
-                sessionStorage.setItem(${sessionScope.curr},"pass")
+                sessionStorage.setItem(${sessionScope.curr},"pass");
+                submit("${sessionScope.user.uid}",${sessionScope.problem_by_id.pid},1,${sessionScope.problem_by_id.type},${sessionScope.problem_by_id.mode})
             }else{
-                sessionStorage.setItem(${sessionScope.curr},"faild")
+                sessionStorage.setItem(${sessionScope.curr},"faild");
+                submit("${sessionScope.user.uid}",${sessionScope.problem_by_id.pid},0,${sessionScope.problem_by_id.type},${sessionScope.problem_by_id.mode})
             }
         }
-        goToNextProblem()
     }
 
     function goToNextProblem() {
@@ -205,7 +206,7 @@
 
     }
     changeTheStyle();
-    function submit() {
+    function submitToResult() {
         layer.confirm('确定提交？', {
             btn: ['确定','取消'] //按钮
         }, function(){
@@ -220,6 +221,29 @@
         }, function(){
             layer.msg("请继续答题",{icon:1});
         });
+    }
+
+    /**
+     * 提交到后台数据库
+     * @param uid 用户id
+     * @param pid 题目id
+     * @param status 0为错误 1为正确
+     */
+    function submit(uid,pid,status,type,mode) {
+        $.ajax({
+            type:"post",
+            url: "addUserProblem",
+            data: {
+                "uid":uid,
+                "pid":pid,
+                "status":status,
+                "type": type,
+                "mode": mode
+            },
+            success:function (data) {
+                goToNextProblem()
+            }
+        })
     }
 </script>
 </body>

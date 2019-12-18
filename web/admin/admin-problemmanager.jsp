@@ -143,10 +143,7 @@
     <!-- content end -->
 </div>
 
-<footer>
-    <hr>
-    <p class="am-padding-left">© 2019 wangx</p>
-</footer>
+
 
 <script src="../js/zepto.min.js"></script>
 <script src="../js/amazeui.min.js"></script>

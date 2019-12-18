@@ -14,12 +14,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.SimpleFormatter;
 
+/**
+ * 用户注册
+ */
 @WebServlet(name = "RegisterServlet",urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
     private RegisterService registerService = new RegisterServiceImpl();
@@ -46,7 +50,10 @@ public class RegisterServlet extends HttpServlet {
                 response.sendRedirect("login.jsp");
                 return;
             }
-            response.sendRedirect("register.jsp");
+        HttpSession session = request.getSession();
+            //密码不一致，前端报错
+        session.setAttribute("error","1");
+        response.sendRedirect("register.jsp");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

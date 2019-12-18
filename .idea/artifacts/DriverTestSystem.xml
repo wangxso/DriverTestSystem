@@ -12,6 +12,8 @@
           <element id="library" level="application" name="vue" />
           <element id="library" level="application" name="amazeui" />
           <element id="library" level="application" name="echarts" />
+          <element id="library" level="application" name="fontawesome" />
+          <element id="library" level="application" name="layer" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="module" name="JUnit5.4" module-name="DriverTestSystem" />

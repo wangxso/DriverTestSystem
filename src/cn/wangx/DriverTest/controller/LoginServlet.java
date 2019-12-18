@@ -41,7 +41,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
             User user = new User();
             user.setUsername(username);
             user.setPassword(password);
-            //登录ip
+            //登录ip，通过HttpUtils获得
             String loginIp = HttpUtils.getIPAddress(request);
             //登录的user agent
             String browser = request.getHeader("User-Agent");

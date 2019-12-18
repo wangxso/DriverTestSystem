@@ -36,10 +36,7 @@
         <div class="col-lg-4">
             <div id="chart" style="width: 600px;height: 800px"></div>
         </div>
-
     </div>
-
-
 </div>
 
 </body>

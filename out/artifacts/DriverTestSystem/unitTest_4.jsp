@@ -27,7 +27,7 @@
                 <div class="lx-category">
                     <div class="lx-category-hd">
                         <h3>
-                            <a href="#">第 1 章 道路交通安全法律、法规和规章</a>
+                            <a href="#">第1章：违法行为综合判断与案例分析</a>
                         </h3>
                     </div>
                     <div class="lx-category-bd">
@@ -39,7 +39,7 @@
 
                     <div class="lx-category-hd">
                         <h3>
-                            <a href="#">第 2 章：交通信号</a>
+                            <a href="#">第2章：安全行车常识</a>
                         </h3>
                     </div>
                     <div class="lx-category-bd">
@@ -51,7 +51,7 @@
 
                     <div class="lx-category-hd">
                         <h3>
-                            <a href="#">第 3 章 安全行车、文明驾驶基础知识</a>
+                            <a href="#">第3章：常见交通标志、标线和交通手势辨识</a>
                         </h3>
                     </div>
                     <div class="lx-category-bd">
@@ -62,7 +62,7 @@
 
                     <div class="lx-category-hd">
                         <h3>
-                            <a href="#">第 4 章 机动车驾驶操作相关基础知识</a>
+                            <a href="#">第4章：驾驶职业道德和文明驾驶常识</a>
                         </h3>
                     </div>
                     <div class="lx-category-bd">
@@ -74,7 +74,7 @@
 
                     <div class="lx-category-hd">
                         <h3>
-                            <a href="#">第 5 章 货车专用试题　</a>
+                            <a href="#">第5章：恶劣气候和复杂道路条件下驾驶常识</a>
                         </h3>
                     </div>
                     <div class="lx-category-bd">
@@ -86,7 +86,7 @@
 
                     <div class="lx-category-hd">
                         <h3>
-                            <a href="#">第 6 章 客车专用试题　</a>
+                            <a href="#">第6章：紧急情况下避险常识</a>
                         </h3>
                     </div>
                     <div class="lx-category-bd">
@@ -98,7 +98,7 @@
 
                     <div class="lx-category-hd">
                         <h3>
-                            <a href="#">第 7 章 摩托车专用试题　</a>
+                            <a href="#">第7章：交通事故救护及常见危化品处置常识</a>
                         </h3>
                     </div>
                     <div class="lx-category-bd">

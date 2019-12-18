@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * 显示单个驾校信息
+ */
 @WebServlet(name = "ShowOneDriverSchoolServlet", urlPatterns = "/showOneDriverSchool")
 public class ShowOneDriverSchoolServlet extends HttpServlet {
     private DriverSchoolService driverSchoolService = new DriverSchoolServiceImpl();

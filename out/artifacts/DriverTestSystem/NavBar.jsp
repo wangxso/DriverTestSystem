@@ -47,7 +47,7 @@
                             <button class="am-btn am-btn-secondary am-topbar-btn am-btn-sm"><span class="am-icon-pencil">管理员后台</span> </button>
                         </a>
                     </c:if>
-                    <a href="#">
+                    <a href="personal.jsp">
                         <button class="am-btn am-btn-secondary am-topbar-btn am-btn-sm"><span class="am-icon-user">个人中心</span> </button>
                     </a>
                     <a href="logout">

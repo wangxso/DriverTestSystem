@@ -1,0 +1,65 @@
+body{
+    font-family: PingFang SC,Helvetica Neue,Hiragino Sans GB,Segoe UI,Microsoft YaHei,微软雅黑,sans-serif;
+     font-size: 14px;
+    line-height: 1.5;
+    background: #f5f7fa;
+    color: #202d40;
+    -webkit-font-smoothing: antialiased;
+}
+.personal-outter-box{
+    margin-top: 100px;
+}
+
+.info{
+    width: 60%;
+    margin-bottom: 20px;
+}
+
+.info-box{
+    margin-top: 20px;
+}
+
+.right{
+    float: right;
+}
+
+.outter-box{
+    background-color: white;
+    width: 60%;
+    margin: 20px auto;
+}
+.avatar{
+    margin: 20px;
+}
+
+.avatar-circle{
+    width: 128px;
+    height: 128px;
+    border-radius: 50%!important;
+}
+
+#chart{
+    margin: 20px auto;
+}
+
+#exam-chart{
+    margin-top: 50px;
+}
+
+#loadgif{
+    width: 500px;
+    height: 331px;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    z-index: 1;
+}
+
+#tip{
+    position: absolute;
+    top: 38%;
+    left: 32%;
+    z-index: 1;
+}
+
+

@@ -55,7 +55,7 @@
             </div>
         </form>
         <hr>
-        <p>© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+        <p>© 2019 wangx</p>
     </div>
 </div>
 </body>

@@ -96,14 +96,15 @@
     function checkAnswer(answer) {
         var result = "${sessionScope.problem.result}";
         if(result.length < 2){
+            //答案正确
             if(answer === result){
                 $("#"+answer).addClass("correct");
-                setCookie("pass",parseInt(getCookie("pass"))+1);
-                goToNextProblem()
+                submit("${sessionScope.user.uid}",${sessionScope.problem.pid},1,${sessionScope.problem.type},${sessionScope.problem.mode})
             }else{
+                //答案错误
                 $("#"+answer).addClass("error");
                 $("#"+result).addClass("correct");
-                setCookie("fail",parseInt(getCookie("fail"))+1);
+                submit("${sessionScope.user.uid}",${sessionScope.problem.pid},0,${sessionScope.problem.type},${sessionScope.problem.mode})
             }
         }else{
             if(!$("#"+answer).hasClass("success")){
@@ -143,7 +144,6 @@
             var r = res_list[i];
             console.log(!isInArray(answer_list, r)+"  r is: "+ r);
             if(!isInArray(answer_list,r)){
-                console.log(1);
                 $('#'+r).addClass("correct");
                 flag = false
             }
@@ -161,7 +161,9 @@
         }
         //全部正确跳转下一题
         if(flag){
-            goToNextProblem()
+            submit("${sessionScope.user.uid}",${sessionScope.problem.pid},1,${sessionScope.problem.type},${sessionScope.problem.mode})
+        }else{
+            submit("${sessionScope.user.uid}",${sessionScope.problem.pid},0,${sessionScope.problem.type},${sessionScope.problem.mode})
         }
 
     }
@@ -178,6 +180,29 @@
     function goToNextProblem() {
         var url = $("#next-btn").attr("href");
         window.location.href = url
+    }
+
+    /**
+     * 提交到后台数据库
+     * @param uid 用户id
+     * @param pid 题目id
+     * @param status 0为错误 1为正确
+     */
+    function submit(uid,pid,status,type,mode) {
+        $.ajax({
+            type:"post",
+            url: "addUserProblem",
+            data: {
+                "uid":uid,
+                "pid":pid,
+                "status":status,
+                "type": type,
+                "mode": mode
+            },
+            success:function (data) {
+                goToNextProblem()
+            }
+        })
     }
 </script>
 </body>

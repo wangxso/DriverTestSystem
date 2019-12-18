@@ -24,6 +24,10 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
 
+/**
+ * 用户提交模拟考试
+ * ajax方式发送，json方式返回
+ */
 @WebServlet(name = "MockTestSubmitServlet", urlPatterns = "/mockSubmit")
 public class MockTestSubmitServlet extends HttpServlet {
     private UserService userService = new UserServiceImpl();

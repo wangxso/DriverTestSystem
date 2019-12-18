@@ -15,26 +15,30 @@ public class ProblemDaoImpl implements ProblemDao {
 //    Logger logger = Logger.getLogger(ProblemDaoImpl.class);
     @Override
     public Problem findProblemById(Long pid) {
-        Problem problem = new Problem();
-        String sql = "select * from problem where pid=?";
-        String[] params = new String[1];
-        params[0] = pid+"";
-        List<Object[]> select = DBUtils.select(sql, params);
-        for (Object[] ol: select){
-            Integer pidd = (Integer) ol[0];
-            problem.setPid(Long.parseLong(pidd.toString()));
-            problem.setContent((String) ol[1]);
-            problem.setResult((String) ol[2]);
-            problem.setType((String) ol[3]);
-            Integer pass = (Integer) ol[4];
-            Integer submit = (Integer) ol[5];
-            problem.setPass(pass);
-            problem.setSubmit(submit);
-            problem.setChooseItem((String) ol[6]);
-            problem.setImg((String) ol[7]);
-            problem.setMode((Integer) ol[8]);
+        try {
+            Problem problem = new Problem();
+            String sql = "select * from problem where pid=?";
+            String[] params = new String[1];
+            params[0] = pid+"";
+            List<Object[]> select = DBUtils.select(sql, params);
+            for (Object[] ol: select){
+                Integer pidd = (Integer) ol[0];
+                problem.setPid(Long.parseLong(pidd.toString()));
+                problem.setContent((String) ol[1]);
+                problem.setResult((String) ol[2]);
+                problem.setType((String) ol[3]);
+                Integer pass = (Integer) ol[4];
+                Integer submit = (Integer) ol[5];
+                problem.setPass(pass);
+                problem.setSubmit(submit);
+                problem.setChooseItem((String) ol[6]);
+                problem.setImg((String) ol[7]);
+                problem.setMode((Integer) ol[8]);
+            }
+            return problem;
+        }catch (NullPointerException e){
+            return null;
         }
-        return problem;
     }
 
     @Override
