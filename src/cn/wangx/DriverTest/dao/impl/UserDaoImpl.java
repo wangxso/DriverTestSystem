@@ -82,6 +82,16 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public int deleteUserById(String uid) {
+        connection = DBUtils.getConnection();
+        String sql = "delete from user where uid = ?";
+        try {
+            PreparedStatement pst = connection.prepareStatement(sql);
+            pst.setString(1,uid);
+            pst.execute();
+            return 1;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return 0;
     }
 

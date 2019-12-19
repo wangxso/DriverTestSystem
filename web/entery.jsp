@@ -12,7 +12,7 @@
     <link rel="alternate icon" type="image/png" href="i/favicon.png">
     <link rel="stylesheet" href="http://cdn.clouddeep.cn/amazeui/1.0.1/css/amazeui.min.css"/>
     <link rel="stylesheet" href="css/entry.css"/>
-    <link href="http//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.layuicdn.com/layui-v2.5.5/css/layui.css">
 </head>
 <body>
 <jsp:include page="NavBar.jsp" flush="true">
@@ -52,25 +52,54 @@
                             报名咨询
                         </h3>
                     </legend>
-                    <div class="am-form-group">
-                        <label for="doc-ipt-name-1">姓名</label>
-                        <input type="text" class="" name="name" id="doc-ipt-name-1" placeholder="输入姓名">
-                    </div>
-                    <div class="am-form-group">
-                        <label for="doc-ipt-phone-1">手机</label>
-                        <input type="tel" class="" name="phone" id="doc-ipt-phone-1" placeholder="输入电子邮件">
-                    </div>
-                    <div class="am-form-group">
-                        <label for="doc-ipt-email-1">邮件</label>
-                        <input type="email" class="" name="email" id="doc-ipt-email-1" placeholder="输入电子邮件">
-                    </div>
-                    <p><input type="submit" class="am-btn am-btn-primary" value="提交"></p>
-                </fieldset>
-            </form>
+                    <form class="layui-form" action="#">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">姓名</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="name" required  lay-verify="required" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">手机号</label>
+                            <div class="layui-input-block">
+                                <input type="text" lay-verify="phone | required" placeholder="请输入手机号">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">邮箱</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="email" required  lay-verify="eamil" placeholder="请输入eamil" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                            </div>
+                        </div>
+                    </form>
         </div>
     </div>
 </div>
 <script src="https://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
 <script src="http://cdn.clouddeep.cn/amazeui/1.0.1/js/amazeui.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="https://www.layuicdn.com/layui-v2.5.5/layui.js"></script>
+<script type="text/javascript">
+
+    layui.use('form', function(){
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(formDemo)', function(data){
+            layer.msg("提交成功",{icon:1})
+        });
+    });
+
+
+</script>
 </body>
 </html>

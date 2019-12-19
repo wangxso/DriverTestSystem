@@ -91,7 +91,7 @@
 
             <div class="btn-bar">
                 <button class="pre am-btn-primary am-btn-lg" <c:if test="${sessionScope.curr == 0}">disabled</c:if> onclick="goToPreProblem()">上一题</button>
-                <button class="next am-btn-success am-btn-lg" onclick="goToNextProblem()">下一题</button>
+                <button class="next am-btn-success am-btn-lg" <c:if test="${sessionScope.curr == sessionScope.problem_id_list.size()-1}">disabled</c:if> onclick="goToNextProblem()">下一题</button>
                 <button class="submit am-btn-default am-btn-lg" onclick="submitToResult()">交卷</button>
             </div>
         </div>

@@ -73,4 +73,12 @@ public class UserServiceImpl implements UserService {
         }
         return 1;
     }
+
+    @Override
+    public int deleteUsersById(List<String> uids) {
+        for(String uid:uids){
+            userDao.deleteUserById(uid);
+        }
+        return 1;
+    }
 }

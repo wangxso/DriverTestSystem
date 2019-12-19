@@ -75,4 +75,11 @@ public interface UserService {
      * @return 1成功 0失败
      */
     int updateUserPassNumberAndFailNumber(String uid,int pass,int fail);
+
+    /**
+     * 删除多个或一个用户通过id
+     * @param uids 用户id列表
+     * @return 0为删除失败 1为删除成功
+     */
+    int deleteUsersById(List<String> uids);
 }

@@ -38,14 +38,23 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
+            String role = request.getParameter("role");
+            String refer = request.getParameter("refer");
             String rePass = request.getParameter("rePass");
+
             if(password.equals(rePass)){
                 User user = new User();
                 user.setUsername(username);
                 // 用户密码进行MD5加密存储
                 user.setPassword(MD5Util.generate(password));
+                if(role!=null){
+                    user.setRole(role);
+                }
                 //用户注册
                 registerService.register(user);
+                if("admin".equals(refer)){
+                    return;
+                }
                 //成功注册跳转登陆页面
                 response.sendRedirect("login.jsp");
                 return;

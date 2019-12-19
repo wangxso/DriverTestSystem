@@ -15,6 +15,7 @@
   <meta name="apple-mobile-web-app-title" content="Amaze UI" />
   <link rel="stylesheet" href="../css/amazeui.min.css"/>
   <link rel="stylesheet" href="../css/admin.css">
+  <link rel="stylesheet" href="../css/manageruser.css">
 </head>
 <body>
 <!--[if lte IE 9]>
@@ -40,7 +41,7 @@
         <div class="am-fl am-cf">
           <div class="am-btn-toolbar am-fl">
             <div class="am-btn-group am-btn-group-xs">
-              <button type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
+              <button type="button" class="am-btn am-btn-default" onclick="addUser()"><span class="am-icon-plus"></span> 新增</button>
               <button type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
             </div>
             <div class="am-form-group am-margin-left am-fl">
@@ -92,12 +93,8 @@
               <td>${item.createDate}</td>
               <td>${item.updateDate}</td>
               <td>
-                <div class="am-btn-toolbar">
-                  <div class="am-btn-group am-btn-group-xs">
                     <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-                    <button class="am-btn am-btn-default am-btn-xs am-text-danger"><span class="am-icon-trash-o"></span> 删除</button>
-                  </div>
-                </div>
+                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger" onclick="deleteUser('${item.uid}')"><span class="am-icon-trash-o"></span> 删除</button>
               </td>
             </tr>
           </c:forEach>
@@ -124,7 +121,31 @@
   </div>
   <!-- content end -->
 </div>
+<div id="addUser" hidden>
+  <form class="am-form" method="post" action="/driver/register">
+    <fieldset style="width: 500px">
+      <legend>表单标题</legend>
+      <div class="am-form-group">
+        <label for="doc-ipt-username-1">用户名</label>
+        <input type="text" name="username" class="" id="doc-ipt-username-1" placeholder="输入用户名">
+      </div>
 
+      <div class="am-form-group">
+        <label for="doc-ipt-pwd-1">密码</label>
+        <input type="password" name="password" class="" id="doc-ipt-pwd-1" placeholder="设置个密码吧">
+      </div>
+      <div class="am-form-group">
+        <label for="doc-select-1">权限</label>
+        <select id="doc-select-1" name="role">
+          <option value="normal">normal</option>
+          <option value="admin">admin</option>
+        </select>
+        <span class="am-form-caret"></span>
+    </div>
+      <p><button type="submit" class="am-btn am-btn-primary">提交</button></p>
+    </fieldset>
+  </form>
+</div>
 <footer>
   <hr>
   <p class="am-padding-left">© 2019 wangx</p>
@@ -134,6 +155,7 @@
 <script src="../js/amazeui.min.js"></script>
 <script src="../js/app.js"></script>
 <script src="../js/jquery.min.js"></script>
+<script src="../js/layer.js"></script>
 <script type="text/javascript">
   var cur = "${sessionScope.curr}";
   var all = "${sessionScope.totalPage}";
@@ -143,6 +165,50 @@
     }
   }
   $('#'+cur).addClass("am-active");
+
+  function deleteUser(uid) {
+    layer.confirm('您确定要删除该用户？', {
+      btn: ['确定','取消'] //按钮
+    }, function(){
+      var uids = [];
+      uids.push(uid)
+      var json = JSON.stringify(uids);
+      console.log(json)
+      $.ajax({
+        type: 'post',
+        url: 'deleteUserById',
+        data: {
+          uids: json
+        },
+        success:function (data) {
+          console.log(data);
+          data = JSON.parse(data);
+          if(data.result === 'success'){
+            layer.msg('删除成功', {icon: 1});
+          }else{
+            layer.msg('删除失败', {icon: 2});
+          }
+        }
+      })
+    }, function(){
+      layer.msg('好的呢',{icon:2});
+    });
+
+  }
+
+  function addUser() {
+    let innerHTML = $('#addUser').prop("innerHTML");
+    console.log(innerHTML)
+    layer.open({
+      type: 1,
+      title: false,
+      closeBtn: 0,
+      shadeClose: true,
+      skin: 'addUsers',
+      content: innerHTML
+    });
+  }
+
 </script>
 </body>
 </html>
